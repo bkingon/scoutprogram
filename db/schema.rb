@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604143043) do
+ActiveRecord::Schema.define(:version => 20130606213549) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(:version => 20130604143043) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+
+  create_table "activities", :force => true do |t|
+    t.string   "name"
+    t.integer  "group_max"
+    t.integer  "group_min"
+    t.time     "recommended_time"
+    t.text     "description"
+    t.text     "notes"
+    t.datetime "updated_at"
+    t.datetime "created_at"
+    t.string   "acceptance_status", :default => "pending"
+    t.string   "main_category"
+  end
 
   create_table "activity_resources", :force => true do |t|
     t.string  "name"
@@ -112,6 +125,18 @@ ActiveRecord::Schema.define(:version => 20130604143043) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "taggings", :force => true do |t|
+    t.integer "tag_id"
+    t.integer "activity_id"
+  end
+
+  add_index "taggings", ["activity_id"], :name => "index_taggings_on_activity_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
 
   create_table "trainings", :force => true do |t|
     t.string   "name"
