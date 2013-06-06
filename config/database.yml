@@ -45,7 +45,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: scoutprogram_production
+  database: d67tp0qf20bufl
   pool: 5
-  username: artlogic-fair
-  password:
+  username: bjibydawtmqzty
+  password: ZhGXiGrUnzGoPlW_uMA6OFSlS-
