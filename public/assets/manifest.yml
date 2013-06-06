@@ -59,5 +59,7 @@ active_admin/application.js: active_admin/application-e3c351f6f3c885b4fd700a53de
 active_admin/application/index.js: active_admin/application-e3c351f6f3c885b4fd700a53dee20e78.js
 active_admin/pages/application.js: active_admin/pages/application-fc289e8b77d6b83bcb242be71345a968.js
 active_admin/pages/application/index.js: active_admin/pages/application-fc289e8b77d6b83bcb242be71345a968.js
+active_admin/print.css: active_admin/print-a043e4b69e1dfb0d85401176dac0c956.css
+active_admin/print/index.css: active_admin/print-a043e4b69e1dfb0d85401176dac0c956.css
 jquery.min.map: jquery.min-8b58c0fbf303b938d8e749262f7e50dd.map
 jquery/index.min.map: jquery.min-8b58c0fbf303b938d8e749262f7e50dd.map
