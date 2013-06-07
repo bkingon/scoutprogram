@@ -5,7 +5,10 @@ ActiveAdmin.register Activity do
       f.input :name
       f.input :group_max
       f.input :group_min
-      f.input :recommended_time, as: :time
+      f.inputs "Recommended Time" do
+        f.input :recommended_time_h, as: :select, collection: 0..23
+        f.input :recommended_time_m, as: :select, collection: 0..59
+      end
       f.input :description
       f.input :notes
       f.input :tags, as: :check_boxes, :collection => Tag.all
@@ -19,7 +22,11 @@ ActiveAdmin.register Activity do
       row :main_category
       row :group_min
       row :group_max
-      row :recommended_time
+      row "Recommended Time" do
+        act.recommended_time_h = 0 if act.recommended_time_h.blank?
+        act.recommended_time_m = 0 if act.recommended_time_m.blank?
+        act.recommended_time_h.to_s + "h" + act.recommended_time_m.to_s + "m"
+      end
       row :description
       row :notes
     end

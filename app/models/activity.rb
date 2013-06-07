@@ -4,7 +4,7 @@ class Activity < ActiveRecord::Base
   has_many :taggings
   has_many :tags, :through => :taggings
 
-  attr_accessible :name, :group_max, :group_min, :recommended_time, :description, :notes, :acceptance_status, :main_category, :tag_ids
+  attr_accessible :name, :group_max, :group_min, :recommended_time_h, :recommended_time_m, :description, :notes, :acceptance_status, :main_category, :tag_ids
 
   MAIN_CATEGORIES = {games: "Games", first_aid: "First Aid", pioneering: "Pioneering", codes: "Codes and Puzzles", training: "Training"}
   ACCEPTANCE_STATES = {:pending => "pending", :accepted => "accepted", :rejected => "rejected"}
@@ -13,7 +13,8 @@ class Activity < ActiveRecord::Base
     name :string, validates: :uniqueness
     group_max :integer
     group_min :integer
-    recommended_time :time
+    recommended_time_h :integer, default: 0
+    recommended_time_m :integer, default: 0
     description :text, validates: :presence
     notes :text
     acceptance_status :default => ACCEPTANCE_STATES[:pending]
