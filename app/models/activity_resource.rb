@@ -1,6 +1,8 @@
 class ActivityResource < ActiveRecord::Base
 
-  has_one :activity
+  belongs_to :activity
+
+  attr_accessible :activity_id, :name, :description, :quantity
 
   structure do
     name

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606221554) do
+ActiveRecord::Schema.define(:version => 20130607085030) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,7 +45,10 @@ ActiveRecord::Schema.define(:version => 20130606221554) do
     t.string  "name"
     t.text    "description"
     t.integer "quantity"
+    t.integer "activity_id"
   end
+
+  add_index "activity_resources", ["activity_id"], :name => "index_activity_resources_on_activity_id"
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

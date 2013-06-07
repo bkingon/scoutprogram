@@ -13,7 +13,7 @@ ActiveAdmin.register Activity do
     f.actions
   end
 
-  show do
+  show do |act|
     attributes_table_for activity do
       row :name
       row :main_category
@@ -22,6 +22,20 @@ ActiveAdmin.register Activity do
       row :recommended_time
       row :description
       row :notes
+    end
+    panel "Resources" do
+      div do
+        table_for(act.activity_resources) do
+          column :name
+          column :description
+          column :quantity
+        end
+        div do
+          span do
+            link_to("Manage Resources", admin_activity_activity_resources_path(act), :class => :button)
+          end
+        end
+      end
     end
     panel "Tags" do
       ul do
