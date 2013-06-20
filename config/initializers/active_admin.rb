@@ -117,6 +117,8 @@ ActiveAdmin.setup do |config|
   #
   config.batch_actions = true
 
+  # config.before_filter :check_admin_role
+
 
   # == Controller Filters
   #
@@ -149,4 +151,23 @@ ActiveAdmin.setup do |config|
   #
   # Set the CSV builder options (default is {})
   # config.csv_options = {}
+end
+
+# Below the ActiveAdmin.setup block, I've opened up the ActiveAdmin::ResourceController
+# and modified the current_ability method to use a special AdminAbility class.
+# Technically you can put this code almost anywere, but I've added it here because
+# I think it belongs together with the other Active Admin initializer code.
+
+ActiveAdmin::ResourceController.class_eval do
+  protected
+
+  def current_ability
+    @current_ability ||= AdminAbility.new(current_admin_user)
+  end
+
+  # def check_admin_role
+  #   return if current_user.role?(:admin)
+  #   flash[:notice] = "You need to be an admin to access this part of the application"
+  #   redirect_to root_path
+  # end
 end

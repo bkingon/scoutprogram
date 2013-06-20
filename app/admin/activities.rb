@@ -52,4 +52,6 @@ ActiveAdmin.register Activity do
       end
     end
   end
+
+  controller.authorize_resource
 end

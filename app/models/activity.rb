@@ -3,6 +3,8 @@ class Activity < ActiveRecord::Base
   has_many :activity_resources
   has_many :taggings
   has_many :tags, :through => :taggings
+  has_many :program_builds
+  has_many :programs, :through => :program_builds
 
   attr_accessible :name, :group_max, :group_min, :recommended_time_h, :recommended_time_m, :description, :notes, :acceptance_status, :main_category, :tag_ids
 
