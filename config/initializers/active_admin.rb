@@ -57,6 +57,8 @@ ActiveAdmin.setup do |config|
   # within the controller.
   config.authentication_method = :authenticate_admin_user!
 
+  config.authorization_adapter = ActiveAdmin::CanCanAdapter
+
 
   # == Current User
   #
@@ -158,16 +160,16 @@ end
 # Technically you can put this code almost anywere, but I've added it here because
 # I think it belongs together with the other Active Admin initializer code.
 
-ActiveAdmin::ResourceController.class_eval do
-  protected
+# ActiveAdmin::ResourceController.class_eval do
+#   protected
 
-  def current_ability
-    @current_ability ||= AdminAbility.new(current_admin_user)
-  end
+#   def current_ability
+#     @current_ability ||= AdminAbility.new(current_admin_user)
+#   end
 
   # def check_admin_role
   #   return if current_user.role?(:admin)
   #   flash[:notice] = "You need to be an admin to access this part of the application"
   #   redirect_to root_path
   # end
-end
+# end

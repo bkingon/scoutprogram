@@ -9,6 +9,6 @@ ActiveAdmin.register ActivityResource do
     end
   end
 
-  controller.authorize_resource
+  # controller.authorize_resource
 end
 

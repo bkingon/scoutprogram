@@ -8,7 +8,7 @@ class Activity < ActiveRecord::Base
 
   attr_accessible :name, :group_max, :group_min, :recommended_time_h, :recommended_time_m, :description, :notes, :acceptance_status, :main_category, :tag_ids
 
-  MAIN_CATEGORIES = {games: "Games", first_aid: "First Aid", pioneering: "Pioneering", codes: "Codes and Puzzles", training: "Training"}
+  MAIN_CATEGORIES = {games: "Games", first_aid: "First Aid", pioneering: "Pioneering", codes: "Codes and Puzzles", training: "Training", ice_breaker: "Ice Breaker"}
   ACCEPTANCE_STATES = {:pending => "pending", :accepted => "accepted", :rejected => "rejected"}
 
   structure do

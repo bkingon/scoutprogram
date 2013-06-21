@@ -1,11 +1,13 @@
 ActiveAdmin.register AdminUser do
-  controller.authorize_resource
+  # controller.authorize_resource
 
   index do |f|
     column :email
     column :current_sign_in_at
     column :last_sign_in_at
-    column :sign_in_count
+    column "Role" do |u|
+      u.roles.first.name.titleize
+    end
     # if can? :update, @user
     default_actions
     # end
@@ -15,9 +17,11 @@ ActiveAdmin.register AdminUser do
 
   form do |f|
     f.inputs "Admin Details" do
+      f.input :id
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :roles, :as => :select, :collection => Role.where(:name => AccessLevels::roles_assignable(current_admin_user.roles.first.name))
     end
     f.actions
   end
@@ -29,7 +33,6 @@ ActiveAdmin.register AdminUser do
         @user = current_admin_user
       end
     end
-
   end
 
 end

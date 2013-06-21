@@ -5,8 +5,34 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
       user ||= User.new # guest user (not logged in)
-      if user.has_role? :admin
-        can :read, :all
+      # if user.has_role? :supreme_admin
+        # can :manage, :all
+      if user.has_role? :moderator
+
+        can :read, AdminUser
+        can :update, AdminUser do |u|
+          (u.try(:email) == user.email)
+        end
+
+        can :read, ActiveAdmin::Page, :name => "Dashboard"
+        can :manage, Activity
+        can :manage, Tag
+
+      elsif user.has_role? :admin
+
+        can :read, AdminUser
+        can :read, ActiveAdmin::Page, :name => "Dashboard"
+        can :update, AdminUser do |u|
+          (u.try(:email) == user.email) || (u.has_role? :moderator)
+        end
+        can :create, AdminUser
+
+        can :read, ActiveAdmin::Page, :name => "Dashboard"
+        can :manage, Activity
+        can :manage, Tag
+
+      elsif user.has_role? :supreme_admin
+        can :manage, :all
       else
         can :read, :all
       end

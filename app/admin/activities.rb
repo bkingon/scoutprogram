@@ -16,6 +16,16 @@ ActiveAdmin.register Activity do
     f.actions
   end
 
+  index do
+    column :name
+    column :acceptance_status
+    column :main_category
+    column "Recommended Time" do |f|
+      f.recommended_time_h.to_s + "h " + f.recommended_time_m.to_s + "m"
+    end
+    column :group_max
+  end
+
   show do |act|
     attributes_table_for activity do
       row :name
@@ -53,5 +63,5 @@ ActiveAdmin.register Activity do
     end
   end
 
-  controller.authorize_resource
+  # controller.authorize_resource
 end

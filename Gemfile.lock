@@ -153,6 +153,7 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    userstamp (2.0.1)
     warden (1.2.1)
       rack (>= 1.0)
 
@@ -172,3 +173,4 @@ DEPENDENCIES
   rolify
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  userstamp
