@@ -24,6 +24,8 @@ ActiveAdmin.register Activity do
       f.recommended_time_h.to_s + "h " + f.recommended_time_m.to_s + "m"
     end
     column :group_max
+
+    default_actions
   end
 
   show do |act|
