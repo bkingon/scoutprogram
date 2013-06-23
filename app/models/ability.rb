@@ -34,7 +34,7 @@ class Ability
       elsif user.has_role? :supreme_admin
         can :manage, :all
       else
-        can :read, :all
+        can :manage, :all
       end
 
     # The first argument to `can` is the action you are giving the user

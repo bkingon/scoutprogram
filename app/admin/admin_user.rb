@@ -21,7 +21,12 @@ ActiveAdmin.register AdminUser do
       f.input :email
       f.input :password
       f.input :password_confirmation
-      f.input :roles, :as => :select, :collection => Role.where(:name => AccessLevels::roles_assignable(current_admin_user.roles.first.name))
+      puts "---HERE----"
+      p current_admin_user.id
+      p params[:id]
+      unless current_admin_user.id == params[:id].to_i
+        f.input :roles, :as => :select, :collection => Role.where(:name => AccessLevels::roles_assignable(current_admin_user.roles.first.name))
+      end
     end
     f.actions
   end
