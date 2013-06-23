@@ -1,5 +1,5 @@
 # # All back end users (i.e. Active Admin users) are authorized using this class
-# class AdminAbility
+class AdminAbility
 #   include CanCan::Ability
 
 #   def initialize(user)
@@ -33,4 +33,4 @@
 #       # can :manage, SomeThirdModel
 #     # end
 #   end
-# end
+end
