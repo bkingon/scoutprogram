@@ -1,6 +1,6 @@
 class AdminUser < ActiveRecord::Base
-  include SentientUser
-  track_who_does_it
+  # include SentientUser
+  # track_who_does_it
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
