@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # include SentientUser
-  track_who_does_it
+  # track_who_does_it
   rolify
 
   # Include default devise modules. Others available are:
