@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include SentientUser
+  # include SentientUser
   track_who_does_it
   rolify
 
