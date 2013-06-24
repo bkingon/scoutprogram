@@ -6,7 +6,8 @@ class Activity < ActiveRecord::Base
   has_many :program_builds
   has_many :programs, :through => :program_builds
 
-  attr_accessible :name, :group_max, :group_min, :recommended_time_h, :recommended_time_m, :description, :notes, :acceptance_status, :main_category, :tag_ids
+  attr_accessible :name, :group_max, :group_min, :recommended_time_h, :recommended_time_m, :description, :notes, :acceptance_status, :main_category, :tag_ids,
+                  :created_by_id, :updated_by_id
 
   MAIN_CATEGORIES = {games: "Games", first_aid: "First Aid", pioneering: "Pioneering", codes: "Codes and Puzzles", training: "Training", ice_breaker: "Ice Breaker"}
   ACCEPTANCE_STATES = {:pending => "pending", :accepted => "accepted", :rejected => "rejected"}

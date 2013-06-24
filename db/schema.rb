@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130621162745) do
+ActiveRecord::Schema.define(:version => 20130624130541) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20130621162745) do
     t.string   "main_category"
     t.integer  "recommended_time_h", :default => 0
     t.integer  "recommended_time_m", :default => 0
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
   end
 
   create_table "activity_resources", :force => true do |t|
@@ -131,9 +133,11 @@ ActiveRecord::Schema.define(:version => 20130621162745) do
   add_index "program_builds", ["program_id"], :name => "index_program_builds_on_program_id"
 
   create_table "programs", :force => true do |t|
-    t.string "name"
-    t.string "theme"
-    t.text   "theme_description"
+    t.string  "name"
+    t.string  "theme"
+    t.text    "theme_description"
+    t.integer "created_by_id"
+    t.integer "updated_by_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -156,7 +160,9 @@ ActiveRecord::Schema.define(:version => 20130621162745) do
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
 
   create_table "tags", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "created_by_id"
+    t.integer "updated_by_id"
   end
 
   create_table "trainings", :force => true do |t|

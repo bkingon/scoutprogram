@@ -24,6 +24,12 @@ ActiveAdmin.register Activity do
       f.recommended_time_h.to_s + "h " + f.recommended_time_m.to_s + "m"
     end
     column :group_max
+    column "Created By" do |u|
+      AdminUser.where(:id => u.created_by_id).map(&:email)
+    end
+    column "Updated By" do |u|
+      AdminUser.where(:id => u.updated_by_id).map(&:email)
+    end
 
     default_actions
   end
@@ -61,6 +67,25 @@ ActiveAdmin.register Activity do
         activity.tags.each do |t|
           li t.name
         end
+      end
+    end
+  end
+
+  controller do
+    def create
+      @activity = Activity.new(params[:activity])
+      @activity.created_by_id = current_admin_user.id
+      create!
+    end
+
+    def update
+      @activity = Activity.find(params[:id])
+      if @activity.update_attributes(params[:activity])
+        @activity.updated_by_id = current_admin_user.id
+        @activity.save!
+        redirect_to admin_admin_users_path
+      else
+        render "edit"
       end
     end
   end
