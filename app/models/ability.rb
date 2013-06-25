@@ -17,6 +17,7 @@ class Ability
         can :read, ActiveAdmin::Page, :name => "Dashboard"
         can :manage, Activity
         can :manage, Tag
+        can :manage, ActivityResource
 
       elsif user.has_role? :admin
 
@@ -30,6 +31,7 @@ class Ability
         can :read, ActiveAdmin::Page, :name => "Dashboard"
         can :manage, Activity
         can :manage, Tag
+        can :manage, ActivityResource
 
       elsif user.has_role? :supreme_admin
         can :manage, :all
