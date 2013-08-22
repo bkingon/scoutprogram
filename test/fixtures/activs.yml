@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  group_max: 1
+  group_min: 1
+  description: MyText
+  notes: MyText
+  acceptance_status: MyString
+  main_category: MyString
+  recommended_time_h: 1
+  recommended_time_m: 1
+  created_by_id: 1
+  updated_by_id: 1
+
+two:
+  name: MyString
+  group_max: 1
+  group_min: 1
+  description: MyText
+  notes: MyText
+  acceptance_status: MyString
+  main_category: MyString
+  recommended_time_h: 1
+  recommended_time_m: 1
+  created_by_id: 1
+  updated_by_id: 1

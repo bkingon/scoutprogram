@@ -1,0 +1,22 @@
+<%= simple_form_for @activity do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Activity</legend>
+    <div class="span4">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :recommended_time_h %>
+      <%= f.input :recommended_time_m %>
+    </div>
+    <div class="span4">
+      <%= f.input :main_category, as: :select %>
+      <%= f.input :group_max %>
+      <%= f.input :group_min %>
+      <%= f.input :notes %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', activities_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

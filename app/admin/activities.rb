@@ -83,7 +83,7 @@ ActiveAdmin.register Activity do
       if @activity.update_attributes(params[:activity])
         @activity.updated_by_id = current_admin_user.id
         @activity.save!
-        redirect_to admin_admin_users_path
+        redirect_to admin_activities_path, notice: "Successfully updated!"
       else
         render "edit"
       end
