@@ -1,0 +1,17 @@
+.row
+  = simple_form_for @activity do |f|
+    .span6
+        = f.input :name, :input_html => { :style => "width: 400px" }
+        = f.input :description, :input_html => { :style => "width: 400px" }
+        = f.input :notes, :input_html => { :style => "width: 400px" }
+
+        = f.submit
+    .span6
+        = f.input :main_category, collection: Activity::MAIN_CATEGORIES.invert, :input_html => { :style => "width: 410px" }
+        = f.input :group_max, :input_html => { :style => "width: 400px" }
+        = f.input :group_min, :input_html => { :style => "width: 400px" }
+        h6 Recommened Time:
+        = f.input :recommended_time_h, as: :select, collection: 0..23, label: "Hours"
+        = f.input :recommended_time_m, as: :select, collection: 0..59, label: "Minutes"
+        = f.association :tags, as: :check_boxes
+        / # = f.collection_check_boxes :tags, Tag.all, :id, :name, :input_html => { :class => 'checkbox' }, :checked => @activity.tags

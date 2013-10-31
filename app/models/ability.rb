@@ -35,8 +35,23 @@ class Ability
 
       elsif user.has_role? :supreme_admin
         can :manage, :all
+      elsif user.has_role? :group_admin
+        can :update, Group do |g|
+          allowed = false
+          g.group_admins.each do |ga|
+            allowed =  true if ga.user_id = user.id
+          end
+          allowed
+        end
+        can :read, :all
+        can [:join_group], Group
+        can [:leave_group], Group
+        can [:create_admin], Group
       else
-        can :manage, :all
+        can :read, :all
+        can [:join_group], Group
+        can [:leave_group], Group
+        can :create, Group
       end
 
     # The first argument to `can` is the action you are giving the user

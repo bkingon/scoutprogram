@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703141017) do
+ActiveRecord::Schema.define(:version => 20131030114327) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -111,6 +111,37 @@ ActiveRecord::Schema.define(:version => 20130703141017) do
     t.datetime "created_at"
     t.text     "description"
     t.text     "notes"
+  end
+
+  create_table "group_admins", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "admin_level"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "group_id"
+  end
+
+  create_table "group_users", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.string   "group_type"
+    t.string   "country"
+    t.string   "province"
+    t.string   "city"
+    t.string   "suburb"
+    t.string   "street"
+    t.string   "blurb"
+    t.text     "description"
+    t.string   "logo_file"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "created_by_id"
   end
 
   create_table "pioneering_activities", :force => true do |t|

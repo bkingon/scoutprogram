@@ -1,0 +1,16 @@
+.row
+  = simple_form_for @group do |f|
+    .span6
+        = f.input :name, :input_html => { :style => "width: 400px" }
+        = f.input :description, :input_html => { :style => "width: 400px" }
+        = f.input :blurb, :input_html => { :style => "width: 400px" }
+
+        = f.submit
+    .span6
+        = f.input :group_type, :input_html => { :style => "width: 400px" }
+        = f.input :street, :input_html => { :style => "width: 400px" }
+        = f.input :suburb, :input_html => { :style => "width: 400px" }
+        = f.input :province, :input_html => { :style => "width: 400px" }
+        = f.input :city, :input_html => { :style => "width: 400px" }
+        = f.input :country, :input_html => { :style => "width: 400px" }
+        = f.input :logo_file, :input_html => { :style => "width: 400px" }

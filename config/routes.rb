@@ -1,7 +1,7 @@
 Scoutprogram::Application.routes.draw do
-  resources :activs
+  # resources :activs
 
-  root :to => 'front_pages#home'
+  root :to => 'front_pages#index'
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -10,8 +10,15 @@ Scoutprogram::Application.routes.draw do
 
   resources :activities
   resources :programs
+  resources :groups do
+    member do
+      post :join_group
+      put :leave_group
+      post :create_admin
+    end
+  end
 
-
+  get 'about' => 'front_pages#about'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,29 @@
+.container
+  .row
+    .span6
+      h3 Groups
+    .span6
+      .pull-right
+        .btn-group
+          = link_to "Create", new_group_path, class: "btn btn-primary"
+  .row
+    .span12
+      p Groups are all the troops and packs and yout hgroups and such that you can join and be a part of. If you belong to them. Then when you create activities and programs and stuff, those will all be affiliated with your group! YATAH!
+  hr
+
+  .row
+    .div id="wrapper"
+      .div id="columns"
+
+        - @groups.each do |g|
+          - image = g.logo_file.presence || 'http://cssdeck.com/uploads/media/items/2/2v3VhAp.png'
+          - if current_user
+            - group_name = current_user.groups.include?(Group.find(g.id)) ? g.name + ' yes' : g.name
+          -else
+            - group_name = g.name
+          a href="#{group_path(g)}"
+            .pin
+              h6 = group_name
+              img src="#{image}"
+              p = g.blurb
+

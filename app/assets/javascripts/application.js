@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+alert('hi');
+setTimeout(function() {
+  $(".flash").fadeOut();
+}, 1000);

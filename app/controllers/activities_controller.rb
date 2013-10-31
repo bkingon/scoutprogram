@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
+  load_and_authorize_resource
   def index
     @activities = Activity.all
 
@@ -41,6 +42,7 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     @activity = Activity.new(params[:activity])
+    current_user ? @activity.created_by_id = current_user.id : @activity.created_by_id = AdminUser.first.id
 
     respond_to do |format|
       if @activity.save
@@ -57,6 +59,7 @@ class ActivitiesController < ApplicationController
   # PUT /activities/1.json
   def update
     @activity = Activity.find(params[:id])
+    current_user ? @activity.updated_by_id = current_user.id : @activity.updated_by_id = AdminUser.first.id
 
     respond_to do |format|
       if @activity.update_attributes(params[:activity])

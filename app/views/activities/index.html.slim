@@ -1,0 +1,33 @@
+.container
+  .row
+    .span6
+      h3 Activities
+    .span6
+      .pull-right
+        .btn-group
+          = link_to "Create", new_activity_path, class: "btn btn-primary"
+  hr
+
+  table.table
+    thead
+      tr
+        th width="200px" Title
+        th width="200px" Category
+        th width="200px" Status
+        th width="200px" Created By
+        th width="200px" Updated By
+        th
+
+    - @activities.each do |a|
+      tbody
+        tr
+          td = a.name
+          td = a.main_category
+          td = a.acceptance_status
+          td = a.created_by_id
+          td = a.updated_by_id
+          td
+            .btn-group
+              = link_to 'Show', { controller: :activities, action: :show, id: a.id }, class: "btn"
+              = link_to 'Edit', { controller: :activities, action: :edit, id: a.id }, class: "btn"
+              = link_to "Delete", activity_path(a), method: :delete, confirm: "Are you sure?", class: "btn btn-danger"

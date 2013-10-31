@@ -34,6 +34,10 @@ gem 'cancan'
 gem 'activeadmin'
 gem 'jquery-rails', '= 2.3.0'
 gem 'jquery-ui-rails'
+gem 'mini_magick'
+gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git', :ref => '26fefeaad836ef419c745da0788d04b52fec02f4'
+gem 'fog'
+gem 'country-select'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

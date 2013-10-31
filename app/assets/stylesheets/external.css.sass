@@ -1,14 +1,15 @@
 $brand-color: #434343
 $dark-grey: #424242
 
+
 .external
   .front-image
-    height: 500px
+    height: 450px
     overflow: hidden
     padding-top: -100px !important
     img
       width: 100%
-      min-height: 500px
+      min-height: 450px
       min-width: 1193px
   h1
     font-family: 'Georgia', serif
@@ -18,57 +19,11 @@ $dark-grey: #424242
     font-weight: normal
     text-transform: none
 
-
-  a.view-our-fairs
-    background: rgba($dark-grey, 0.8)
-    padding: 10px 30px 5px
-    display: inline-block
-    position: absolute
-    border-radius: 0px 0px 5px 5px
-    h2
-      color: #fff
-      font-weight: 600
-      text-transform: uppercase
-      vertical-align: middle
-      img
-        padding-left: 20px
-        vertical-align: middle
-        margin-top: -3px
-    &:hover
-      background: rgba(#000000, 0.8)
-  .featured-fair
-    margin-top: -300px
-    position: relative
-    z-index: 3
-    .feature
-      border-left: $brand-color 4px solid
-      background: $dark-grey
-      p, h1, a, i
-        color: #ffffff
-      .info
-        border-right: 1px solid #707070
-      .divider-solid
-        border-top: 1px solid #707070
-      .button-light
-        color: #333
-    .coming-soon
-      background: $dark-grey
-      display: inline-block
-      color: #fff
-      padding-right: 20px
-      padding-left: 20px
-      padding-top: 10px
-      padding-bottom: 10px
-      text-transform: uppercase
-      &:after
-        content: " "
-        width: 0
-        height: 0
-        border-left: 20px solid transparent
-        border-right: 20px solid transparent
-        border-top: 20px solid $dark-grey
-        position: absolute
-        display: block
-        top: 30px
-        margin-left: 30px
-
+.flash
+  background: rgba(0,0,0,0.6)
+  padding: 10px 10px
+  color: #fff
+  text-align: center
+  position: relative
+  z-index: 3000
+  margin-bottom: 10px
