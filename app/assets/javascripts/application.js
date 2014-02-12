@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
+//= require angular
+//= require angular-resource
+//= require app/main
+
 alert('hi');
 setTimeout(function() {
   $(".flash").fadeOut();

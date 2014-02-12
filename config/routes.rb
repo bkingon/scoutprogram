@@ -8,6 +8,10 @@ Scoutprogram::Application.routes.draw do
 
   devise_for :users
 
+  namespace :api do
+    resources :programs
+  end
+
   resources :activities
   resources :programs
   resources :groups do
@@ -17,6 +21,11 @@ Scoutprogram::Application.routes.draw do
       post :create_admin
     end
   end
+
+  # Passthrough to frontend
+  match '/' => 'home#index'
+  match '/programs' => 'programs#index'
+  match '/programs/*page' => 'programs#index'
 
   get 'about' => 'front_pages#about'
 

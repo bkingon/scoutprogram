@@ -1,0 +1,10 @@
+<ul>
+  <li ng-repeat="program in programs">
+    Title: {{program.title}} <br/>
+    Description: {{program.description}}
+    <a href="/programs/{{program.id}}/edit">Ubah</a>
+    <a href="" ng-click="destroy(program.id)">Hapus</a>
+  </li>
+</ul>
+
+<a href="/programs/new">Add new program</a>

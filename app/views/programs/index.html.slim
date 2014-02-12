@@ -1,18 +1,38 @@
-.container
-  h2 index
+.div ng-app="app" id="wrapper" ng-controller="ProgramsController"
+  .container
+    .row
+      h1 New Program
+      .span6
+        h3 Compiling here...
+        ul
+          li ng-repeat="activity in program_activities" ng-click="toggle_activity_show($event)"
+            | {{activity.name}}
+            a href="#" ng-click="remove_from_program_activities()" x
+            .div id="{{activity.id}}_id" style="display:none"
+              p
+                h6 Category
+                | {{activity.main_category}}
+              p
+                h6 Notes
+                | {{activity.notes}}
+              p
+                h6 Description
+                | {{activity.description}}
+              p
+                h6 Numbers
+                | Particepants range from {{activity.group_min}} to {{activity.group_max}}
+              p
+                h6 Recommended Duration
+                | {{activity.recommended_time_h}}h:{{activity.recommended_time_m}}m
+      .span3
+        / h6 middle one
+      .span3
+        form
+          input type="text" ng-model="newEntry.name"
 
-  table.table-striped
-    thead
-      tr
-        th this is cool
-        th that is not
-    tbody
-      tr
-        td what
-        td why
-      tr
-        td again
-        td again
-      tr
-        td more
-        td and more
+        a href="#" ng-click="popup()"Add To List
+
+        ul
+          li ng-repeat="activity in activities" ng-dblclick="add_to_program()"
+            | {{activity.name}}
+

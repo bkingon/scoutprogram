@@ -47,11 +47,13 @@ class Ability
         can [:join_group], Group
         can [:leave_group], Group
         can [:create_admin], Group
+        can :manage, :all
       else
         can :read, :all
         can [:join_group], Group
         can [:leave_group], Group
         can :create, Group
+        can :manage, :all
       end
 
     # The first argument to `can` is the action you are giving the user
